@@ -1,0 +1,50 @@
+import simplegui
+import random
+x = -50
+z = 50
+y = 100
+def draw_handler(canvas):
+    global x
+    global z
+    x= x+5
+    if z<=100:
+        z +=5
+        
+        #rain
+        for i in range(120):
+            xdot=random.randint(1, 600)
+            ydot=random.randint(1, 445)
+            canvas.draw_line((xdot, ydot), (xdot, ydot+10), 5, "lightblue")
+
+    
+    
+  
+    canvas.draw_polygon([(x , 300), (x + 300 , 300), (x + 300 , 150), (x, 150)], 50, "gray" , "gray")
+    canvas.draw_circle((300,400), 150, 2, "black", "white")
+    canvas.draw_circle((300,400), 110, 2, "black", "black")
+    canvas.draw_circle((300,400), 80, 2, "black", "blue")
+    canvas.draw_circle((300,400), 50, 2, "black", "red")
+    canvas.draw_circle((300,400), 20, 2, "black", "yellow")
+    canvas.draw_line((350, 500),(350, 600), 5, "black")
+    canvas.draw_line((250, 500),(250, 600), 5, "black")
+    
+    canvas.draw_line((z-100 , 500), (z + 200, 500), 5, "saddlebrown")
+    canvas.draw_line((z-50 , 400), (z + 400, 400), 5, "saddlebrown")
+    canvas.draw_line((z-25 , 300), (z + 300, 300), 5, "saddlebrown")
+    
+    canvas.draw_circle((z+300, 200), 50, 1, "green", "yellow")
+    
+    
+    
+
+    
+    
+
+    
+    
+
+
+frame = simplegui.create_frame('Never Give Up', 600, 600)
+frame.set_canvas_background("white")
+frame.set_draw_handler(draw_handler)
+frame.start()
